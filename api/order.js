@@ -1,7 +1,7 @@
 import orders from '../models/order';
 import { Router } from 'express';
 
-var order = Router();
+let order = Router();
 
 order.post('/', function(req, res, next){
 

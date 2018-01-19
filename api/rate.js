@@ -3,13 +3,39 @@ import request from 'request';
 
 let rate = Router();
 
+const url = 'https://api.fixer.io/latest?base=AUD';
+//const url = 'http://www.google.com';
+
+
 rate.get('/', function(req, res, next){
 
-    var result = request
-        .get('https://api.fixer.io/latest?base=AUD')
-    console.log(result);
-    res.json(result);
+    var options =
+        {
+            url: url,
+            Accept: "application/json",
+            "Accept-Charset": "uf-8"
+        };
 
+    var outerResponse = res;
+
+    request( options, function (err, res, body) {
+
+        if (err) 
+        {
+            console.log(err);
+        } 
+
+        else if (res.statusCode !== 200) 
+        {
+            console.log("Unexpected status code: " + res.statusCode);
+        } 
+
+        else 
+        {
+            let data = JSON.parse(body);
+            outerResponse.json(data);
+        }
+    })
 })
 
 export default rate;
