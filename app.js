@@ -1,6 +1,6 @@
 var express = require('express');
 var path = require('path');
-var logger = require('morgan');
+import logger from 'morgan';
 import bodyParser from 'body-parser';
 import api from './api';
 
