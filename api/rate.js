@@ -4,19 +4,17 @@ import request from 'request';
 let rate = Router();
 
 const url = 'https://api.fixer.io/latest?base=AUD';
-//const url = 'http://www.google.com';
-
 
 rate.get('/', function(req, res, next){
 
-    var options =
+    let options =
         {
             url: url,
             Accept: "application/json",
             "Accept-Charset": "uf-8"
         };
 
-    var outerResponse = res;
+    let outerResponse = res;
 
     request( options, function (err, res, body) {
 

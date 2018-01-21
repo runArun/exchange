@@ -13,6 +13,3 @@ mongoose.connect('mongodb://localhost/exchange',function(err){
 
 export default mongoose;
 
-// export default callback => {
-//	callback();   //connect to a database.
-//   }
